@@ -1,0 +1,89 @@
+.header {
+  color: #8b7969;
+  font-size: 30px;
+  font-family: serif;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  /* 横方向に中央 */
+  align-items: center;
+  /* 縦方向に中央（高さがある場合） */
+}
+
+.header__inner {}
+
+.contact-form__content {
+  padding: 50px 300px;
+  max-width: 1000px;
+  color: #8b7969;
+}
+
+.contact-form__heading {
+  font-family: serif;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+  /* 下のフォームとの余白 */
+}
+
+.confirm-table {
+  border: 1px solid #ddd;
+}
+
+.confirm-table__header {
+  width: 300px;
+  height: 60px;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  background-color: #82756b;
+  color: white;
+  text-align: left;
+  padding-left: 10px;
+  font-weight: normal;
+}
+
+.confirm-table__text {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  width: 800px;
+}
+
+.confirm-table__text input {
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+.confirm-table__row:last-child .confirm-table__header,
+.confirm-table__row:last-child .confirm-table__text {
+  border-bottom-width: 0;
+}
+
+.form__button {
+  display: flex;
+  justify-content: center;
+  /* 横方向の中央寄せ */
+  gap: 10px;
+  /* ボタン間の余白 */
+  margin-top: 20px;
+  /* 上に余白　*/
+}
+
+.form__button-submit {
+  padding: 5px 20px;
+  height: 30px;
+  border: none;
+  background: #82756b;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form__button-submit-fixes {
+  border: none;
+  background-color: white;
+  color: #8b7969;
+  font-size: 15px;
+  text-decoration-line: underline;
+  cursor: pointer;
+}

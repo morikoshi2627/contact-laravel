@@ -1,0 +1,158 @@
+/*  
+.header {
+  color: #8b7969;
+  font-size: 30px;
+  font-family: serif;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  /* 横方向に中央 
+  align-items: center;
+  /* 縦方向に中央（高さがある場合） */
+/* } */
+
+/* .contact-form__content { 
+  padding: 50px 300px;
+  max-width: auto;
+  color: #8b7969;
+}
+
+/* .contact-form__heading { 
+  font-family: serif;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+  /* 下のフォームとの余白 */
+
+/* 薄い文字で入力例アシスト */
+.field::placeholder,
+.field-2::placeholder {
+  color: #beb2a6;
+}
+
+.field {
+  background-color: #F4F4F4;
+  border: none;
+  color: #8b7969;
+  padding: 10px 20px;
+  padding-left: 10px;
+}
+
+.field-2 {
+  background-color: #F4F4F4;
+  border: none;
+  color: #8b7969;
+  padding: 10px 400px;
+  padding-left: 10px;
+}
+
+.field-3 {
+  background-color: #F4F4F4;
+  border: none;
+  color: #8b7969;
+  padding: 60px 400px;
+  padding-left: 10px;
+}
+
+.form {
+  max-width: 800px;
+  /* 好きな幅に */
+  margin: 30px auto;
+  /* ← auto にすることで中央配置 */
+}
+
+.form__group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form__group-title {
+  width: 170px;
+  /* ラベルの幅 */
+
+}
+
+.form__label--item {}
+
+.form__label--required {
+  color: red;
+}
+
+.form__group-content {
+  display: flex;
+  gap: 10px;
+  /* 2つのinputの間の余白 */
+  flex-wrap: wrap;
+  /* レスポンシブ対応（任意） */
+}
+
+
+/* 入力自体は非表示 */
+.custom-radio input[type="radio"] {
+  display: none;
+}
+
+/* ラベル全体 */
+.custom-radio {
+  position: relative;
+  padding-left: 30px;
+  margin-right: 20px;
+  cursor: pointer;
+  color: #8b7969;
+  font-size: 16px;
+}
+
+/* 外枠の丸 */
+.form__input--text .radio-mark {
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 18px;
+  width: 18px;
+  border: 2px solid #8b7969;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+/* 選択されたときの内側の点 */
+.custom-radio input[type="radio"]:checked+.radio-mark::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #8b7969;
+}
+
+.form__error {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.form__input--textarea {}
+
+.form__button {
+  display: flex;
+  justify-content: center;
+  /* 横方向の中央揃え */
+}
+
+.form__button-submit {
+  padding: 5px 20px;
+  width: 15%;
+  height: 30px;
+  border: none;
+  background: #82756b;
+  color: #fff;
+  cursor: pointer;
+
+}
+
+.form__input--textarea {}

@@ -1,0 +1,46 @@
+.thanks__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  position: relative;
+}
+
+.thanks__heading {
+  color: #baa899;
+  position: relative;
+  padding: 150px;
+  /* 切れずに大きく */
+  overflow: visible;
+  font-size: 15px;
+
+}
+
+.thanks__heading::before {
+  content: "Thank you";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 15vw;
+  opacity: 0.1;
+  white-space: nowrap;
+  pointer-events: none;
+  font-family: serif;
+}
+
+.home__button-inner {
+  background-color: #82756b;
+  text-align: center;
+  margin: 50px 50px;
+  padding: 5px 20px;
+}
+
+.home_button__logo {
+  text-decoration: none;
+  color: white;
+  font-size: 10px;
+  font-family: serif;
+}

@@ -1,0 +1,91 @@
+.header {
+  width: 100%;
+  color: #8b7969;
+  font-size: 30px;
+  font-family: serif;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form__button-register {
+  margin-left: 300px;
+}
+
+.form__button-register-submit {
+  border: #beb2a6;
+  background-color: #f4f4f4;
+  color: #8b7969;
+  padding: 5px 10px;
+  margin: 5px 20px;
+  cursor: pointer;
+}
+
+.contact-form__content {
+  width: 100vw;
+  height: 100vh;
+  color: #8b7969;
+  background-color: #f1ece6;
+}
+
+.contact-form__title {
+  margin-top: 0;
+}
+
+.contact-form__heading {
+  font-family: serif;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+  /* 下のフォームとの余白 */
+
+}
+
+.form__group {
+  margin-bottom: 30px;
+}
+
+
+.form__group-title {
+  text-align: left;
+}
+
+.form {
+  border: 1px solid #beb2a6;
+  /* 枠線をつける */
+  padding: 90px;
+  /* 内側の余白 */
+  width: 400px;
+  /* 幅（任意） */
+  font-size: 20px;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.field-2 {
+  border: none;
+  background-color: #f4f4f4;
+  width: 300px;
+  height: 40px;
+  padding: 0px 15px;
+}
+
+.field-2,
+::placeholder {
+  color: #beb2a6;
+}
+
+.form__button-login {
+  margin-top: 30px;
+}
+
+.form__button-login-submit {
+  border: none;
+  background-color: #8b7969;
+  color: white;
+  padding: 5px 20px;
+  cursor: pointer;
+}
