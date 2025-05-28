@@ -58,11 +58,11 @@ Fortify::authenticateUsing(function ($request) {
 
 
         Fortify::registerView(function () {
-            return view('/register');
+            return view('register');
         });
     
         Fortify::loginView(function () {
-            return view('/login');
+            return view('login');
         });
 
         RateLimiter::for('login', function (Request $request) {

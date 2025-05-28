@@ -70,10 +70,12 @@
                <div class="form__error">
                {{ $message }}</div>
             @enderror
-            
-            <div class="form__button-login">
-              <button class="form__button-login-submit" type="submit">登録</button>
           </div>
         </div>
+            <div class="form__button-login">
+              <button class="form__button-login-submit" type="submit">登録</button>
+            </div>
       </form>
   </main>
+</body>
+</html>

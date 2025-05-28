@@ -1,0 +1,56 @@
+.header {
+  width: 100%;
+  color: #8b7969;
+  font-size: 30px;
+  font-family: serif;
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__inner {
+  margin: 0 auto;
+  /* 中央寄せ（flex内で機能させるためには工夫が必要） */
+  font-size: 30px;
+  color: #8b7969;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.form__button {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.form__button-submit {
+  border: #beb2a6;
+  background-color: #f4f4f4;
+  color: #8b7969;
+  padding: 5px 20px;
+  margin: 5px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.contact-form__content {
+  width: 100vw;
+  height: 100vh;
+  color: #8b7969;
+}
+
+.contact-form__title {
+  margin-top: 0;
+}
+
+.contact-form__heading {
+  font-family: serif;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+  /* 下のフォームとの余白 */
+
+}

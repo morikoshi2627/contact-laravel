@@ -16,3 +16,7 @@ use App\Http\Controllers\ContactController;
 Route::get('/', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/thanks', [ContactController::class, 'store'])->name('contact.store');
+
+Route::get('/admin', function () {
+  return view('admin'); // 仮に admin.blade.php を表示する
+})->middleware('auth');
