@@ -28,7 +28,7 @@
       <div class="contact-form__heading">
         <h2>Confirm</h2>
       </div>
-      <form class="form" action="/thanks" method="post">
+      <form class="form" action="{{ route('contact.store') }}" method="post">
       @csrf
 
       {{-- Hidden inputs --}}
@@ -41,7 +41,7 @@
       <input type="hidden" name="tel3" value="{{ $contact['tel3'] }}">
       <input type="hidden" name="address" value="{{ $contact['address'] }}">
       <input type="hidden" name="building" value="{{ $contact['building'] }}">
-      <input type="hidden" name="contact" value="{{ $contact['contact'] }}">
+      <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}">
       <input type="hidden" name="content" value="{{ $contact['content'] }}">
 
 
@@ -90,13 +90,14 @@
             <tr class="confirm-table__row">
               <th class="confirm-table__header"></th>
               <td class="confirm-table__text">
-              <input class="confirm-table__text2" type="text" name="contact" value="{{ $contact['contact'] }}" readonly /> 
+              {{ $contact['contact'] }}
+              <input class="confirm-table__text2" type="hidden" name="category_id" value="{{ $contact['category_id'] }}" readonly /> 
               </td>
             </tr>
             <tr class="confirm-table__row">
               <th class="confirm-table__header"></th>
               <td class="confirm-table__text">
-              <input class="confirm-table__text2" type="text" name="content" value="{{ $contact['content'] }}" readonly /> 
+              <input class="confirm-table__text2" type="text" name="content"" value="{{ $contact['content'] }}" readonly /> 
               </td>
             </tr>
           </table>

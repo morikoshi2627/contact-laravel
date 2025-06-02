@@ -26,8 +26,13 @@ class CreateNewUser implements CreatesNewUsers
                 'email',
                 Rule::unique(User::class),
             ],
-            'password' => $this->passwordRules(),
+
+            // 'password' => $this->passwordRules(),
+            // ],
+            // 自分でルールを書く（パスワードを確認入力なしで通す
+            'password' => ['required', 'string', 'min:8'], // ここで 'confirmed' を削除
         ],
+
         // バリデーションのメッセージ
         [
             'name.required' => 'お名前を入力して下さい',

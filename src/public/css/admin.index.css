@@ -1,0 +1,301 @@
+.header {
+  width: 100%;
+  color: #8b7969;
+  font-size: 30px;
+  font-family: serif;
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__inner {
+  margin: 0 auto;
+  /* 中央寄せ（flex内で機能させるためには工夫が必要） */
+  font-size: 30px;
+  color: #8b7969;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+.form__button {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.form__button-submit {
+  border: #beb2a6;
+  background-color: #f4f4f4;
+  color: #8b7969;
+  padding: 5px 20px;
+  margin: 5px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.contact-form__content {
+  width: 100vw;
+  height: 100vh;
+  color: #8b7969;
+}
+
+.contact-form__title {
+  margin-top: 0;
+}
+
+.contact-form__heading {
+  font-family: serif;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+  /* 下のフォームとの余白 */
+
+}
+
+.form__search {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.search {
+  flex: 1 1 200px;
+    /* 最小200px、余白に応じて伸縮 */
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+/* 名前、メール入力欄 */
+.form__name{
+  padding: 10px 10px;
+  width: 350px;
+  border-color: #e3deda;
+  background-color: #f4f4f4;
+  box-shadow: none;
+    /* シャドウを削除 */
+  border: 1px solid #ccc;
+    /* 必要に応じて境界線を明示 */
+  outline: none;
+    /* フォーカス時の青い枠も削除したい場合 */
+
+}
+
+/* 性別選択 */
+.form__gender{
+  width: 120px;
+  padding: 10px;
+  color: #8b7969;
+  border-color: #e3deda;
+  background-color: #f4f4f4;
+  outline: none;
+    /* フォーカス時の青い枠も削除したい場合 */
+}
+
+/* 商品の種類選択 */
+.form__category{
+  padding: 10px 20px;
+  color: #8b7969;
+  border-color: #e3deda;
+  background-color: #f4f4f4;
+  outline: none;
+    /* フォーカス時の青い枠も削除したい場合 */
+}
+
+/* 日付 */
+.form_date-text{
+  padding: 10px 20px;
+  color: #8b7969;
+  border-color: #e3deda;
+  background-color: #f4f4f4;
+
+  box-shadow: none;
+    /* シャドウを削除 */
+  border: 1px solid #ccc;
+    /* 必要に応じて境界線を明示 */
+  outline: none;
+    /* フォーカス時の青い枠も削除したい場合 */
+}
+
+/* 検索ボタン */
+.search__button-submit{
+  padding: 10px 30px;
+    border: none;
+    background: #82756b;
+    color: #fff;
+    cursor: pointer;
+    width: auto;
+}
+
+/* リセットボタン */
+.reset__button{
+  text-decoration: none;
+    padding: 8px 20px;
+    background: #d9c5b5;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    width: auto;
+}
+
+/* 検索とリセットボタンを並べる */
+.button-group {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  margin: 0 50px;
+}
+
+/* エクスポートボタン＋ページネーションの親 */
+.action-row {
+  width: 90%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* ページネーション */
+/* ページネーションの中央寄せとボタンスタイル調整 */
+.pagination {
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* Bootstrapのページネーションを見た目調整（任意） */
+.pagination .page-link {
+  color: #8b7969;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-decoration: none;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #82756b;
+  color: #fff;
+  border-color: #82756b;
+}
+
+/*  */
+
+/* エクスポートボタン */
+.export__button {
+  text-decoration: none;
+  padding: 10px 20px;
+  border: none;
+  background: #beb2a6;
+  color: #fff;
+  cursor: pointer;
+  /* display: inline-block; */
+  /* margin-top: 10px; */
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  margin-top: 10px;
+}
+
+.contact-table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  color: white;
+}
+
+/* ヘッダー行 */
+.contact-table th {
+  color: white;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  text-align: left;
+  background-color: #82756b;
+}
+
+/* 通常のデータ行 */
+.contact-table td {
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  text-align: left;
+  color: #82756b;
+  background-color: #fff;
+}
+
+
+.contact-table__title{
+  color: white;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  text-align: left;
+  background-color: #82756b;
+}
+
+.contact-table__categories{
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  text-align: left;
+  color: #82756b;
+}
+
+.button__detail{
+  color: #8b7969;
+  text-decoration: none;
+}
+
+
+/* モーダルウィンドウ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  
+  /* 半透明の黒背景 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  width: 500px;
+  color: #82756b;
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.delate-button_detail {
+  display: block;
+  margin: 20px auto 0;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}

@@ -87,7 +87,15 @@
   flex-wrap: wrap;
   /* レスポンシブ対応（任意） */
 }
-
+/* ラジオボタン */
+.radio-group{
+  display: flex;
+  flex-wrap: wrap;
+  /* 折り返し可能に */
+  gap: 10px 20px;
+  /* 上下左右の余白 */
+  justify-content: flex-start;
+}
 
 /* 入力自体は非表示 */
 .custom-radio input[type="radio"] {
@@ -102,6 +110,13 @@
   cursor: pointer;
   color: #8b7969;
   font-size: 16px;
+
+  min-width: 100px;
+  /* 最小幅を確保して、潰れ防止 */
+  flex-shrink: 0;
+  /* 小さく縮まないように */
+  display: flex;
+  align-items: center;
 }
 
 /* 外枠の丸 */
@@ -136,7 +151,6 @@
   margin-top: 4px;
 }
 
-.form__input--textarea {}
 
 .form__button {
   display: flex;
@@ -154,5 +168,3 @@
   cursor: pointer;
 
 }
-
-.form__input--textarea {}

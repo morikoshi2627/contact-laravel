@@ -86,10 +86,14 @@
   height: 40px;
   padding: 0px 15px;
   color: #8b7969;
+  outline: none;
+    /* フォーカス時の青い枠も削除したい場合 */
 }
 
 .field-2::placeholder {
   color: #beb2a6;
+  outline: none;
+    /* フォーカス時の青い枠も削除したい場合 */
 }
 
 .form__button-login {

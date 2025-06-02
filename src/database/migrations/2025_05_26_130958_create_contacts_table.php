@@ -15,6 +15,7 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->nullable();
             $table->string('name')->nullable();
             $table->string('gender')->nullable();
             $table->string('email')->nullable();
@@ -22,7 +23,7 @@ class CreateContactsTable extends Migration
             $table->string('address')->nullable();
             $table->string('building')->nullable();
             $table->text('contact')->nullable();
-            $table->text('content')->nullable();
+            $table->text('detail')->nullable();
             $table->timestamps();
         });
     }

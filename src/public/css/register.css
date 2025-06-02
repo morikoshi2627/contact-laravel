@@ -86,6 +86,8 @@
   width: 300px;
   height: 40px;
   padding: 0px 15px;
+  outline: none;
+    /* フォーカス時の青い枠も削除したい場合 */
 }
 
 .field-2::placeholder {

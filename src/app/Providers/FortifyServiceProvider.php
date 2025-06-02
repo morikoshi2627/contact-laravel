@@ -8,6 +8,13 @@ use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
+// 登録後リダイレクト先指定
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Contracts\RegisterResponse;
+//ログイン後のリダイレクト先指定
+use Laravel\Fortify\Contracts\LoginResponse;
+// 
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -30,10 +37,33 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Fortify::registerView(function () {
+            return view('/register'); // 登録画面のBladeを指定
+        });
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
+        // 登録後リダイレクト先指定
+        app()->singleton(RegisterResponse::class, function () {
+            return new class implements RegisterResponse {
+                public function toResponse($request)
+                {
+                    return redirect('/admin');
+                }
+            };
+        });
+
+        //ログイン後リダイレクト先指定 
+
+        app()->singleton(LoginResponse::class, function () {
+            return new class implements LoginResponse {
+                 public function toResponse($request)
+                 {
+                    return redirect('/admin');
+                 }
+            };
+        });
 
 // バリデーションのメッセージ追加
 Fortify::authenticateUsing(function ($request) {

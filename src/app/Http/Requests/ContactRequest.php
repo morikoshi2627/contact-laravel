@@ -34,7 +34,7 @@ class ContactRequest extends FormRequest
         'tel2' => ['required', 'numeric', 'digits_between:1,5'],
         'tel3' => ['required', 'numeric', 'digits_between:1,5'],
         'address' => ['required' ],
-        'contact' => ['required'],
+        'category_id' => ['required'],
         'content' => ['required', 'string', 'max:120'],
 
         ];
@@ -60,7 +60,7 @@ class ContactRequest extends FormRequest
               'tel3.numeric' => '電話番号を数値で入力してください',
               'tel3.digits_between' => '電話番号は5桁までの数字で入力してください',
              'address.required' => '住所を入力してください',
-             'contact.required' => 'お問い合わせの種類を選択してください',
+             'category_id.required' => 'お問い合わせの種類を選択してください',
              'content.required' => 'お問い合わせ内容を入力してください',
              'content.' => 'お問い合わせ内容を入力してください',
 
