@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Contracts\RegisterResponse;
+use App\Actions\Fortify\CustomRegisterResponse;
 //ログイン後のリダイレクト先指定
 use Laravel\Fortify\Contracts\LoginResponse;
 // 
@@ -29,7 +30,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(RegisterResponse::class, CustomRegisterResponse::class);
     }
 
     /**
@@ -45,14 +46,14 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
         // 登録後リダイレクト先指定
-        app()->singleton(RegisterResponse::class, function () {
-            return new class implements RegisterResponse {
-                public function toResponse($request)
-                {
-                    return redirect('/admin');
-                }
-            };
-        });
+        // app()->singleton(RegisterResponse::class, function () {
+        // return new class implements RegisterResponse {
+        // public function toResponse($request)
+        // {
+        // return redirect('/admin');
+        // }
+        // };
+        // });
 
         //ログイン後リダイレクト先指定 
 
@@ -104,5 +105,13 @@ Fortify::authenticateUsing(function ($request) {
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
+
+     // Fortifyの登録後リダイレクト先を変更のため
+    //  Fortifyのレスポンスカスタマイズをsingletonで上書き
+        app()->singleton(
+            \Laravel\Fortify\Contracts\RegisterResponse::class,
+            \App\Actions\Fortify\CustomRegisterResponse::class
+        );
+
     }
 }
