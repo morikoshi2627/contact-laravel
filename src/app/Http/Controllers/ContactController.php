@@ -18,7 +18,7 @@ class ContactController extends Controller
         $contact = $request->only(['name1','name2','gender','email', 'tel1','tel2','tel3', 'address','building','category_id','content']);
     // category_id からカテゴリ名を取得
     $category = Category::find($contact['category_id']);
-    $contact['contact'] = $category ? $category->name : '未分類';
+    $contact['contact'] = $category ? $category->content : '未分類';
 
         return view('confirm', compact('contact'));
     }
@@ -47,7 +47,7 @@ class ContactController extends Controller
         'address' => $request->input('address'),
         'building' => $request->input('building'),
         'category_id' => $categoryId,
-        'contact' => $request->input('contact'),
+        // 'contact' => $request->input('contact'),
         'detail' => $request->input('content'),
     ];
         // 送信用データ作成（nameを結合）

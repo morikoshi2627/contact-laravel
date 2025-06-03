@@ -19,7 +19,7 @@ class Contact extends Model
              'building',
              'category_id', 
              'contact',
-             'content'
+             'detail'
              ];
 // Contactモデルにcategory（）リレーションを定義
              public function category()

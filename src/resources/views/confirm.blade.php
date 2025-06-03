@@ -97,7 +97,7 @@
             <tr class="confirm-table__row">
               <th class="confirm-table__header"></th>
               <td class="confirm-table__text">
-              <input class="confirm-table__text2" type="text" name="content"" value="{{ $contact['content'] }}" readonly /> 
+              <input class="confirm-table__text2" type="text" name="content" value="{{ $contact['content'] }}" readonly /> 
               </td>
             </tr>
           </table>
