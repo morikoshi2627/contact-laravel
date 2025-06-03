@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Category;
 use Illuminate\Support\Facades\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class AdminController extends Controller
 {
@@ -67,7 +68,6 @@ class AdminController extends Controller
 
     // <!-- ブラウザから送られた検索条件（例：名前、性別など）を受け取って、それに一致するお問い合わせデータをCSV形式で出力（ダウンロード） するメソッド-->
     public function export(Request $request)
-
     {
     
     // <!-- Contact モデルを使って検索クエリを開始-->
@@ -82,33 +82,41 @@ class AdminController extends Controller
                   ->orWhere('email', 'like', '%' . $request->name . '%');
             });
         }
-    
-        if ($request->filled('gender')) {
-            $query->where('gender', $request->gender);
+      
+    if ($request->filled('gender') && $request->gender !== '全て') {
+        $genderMap = ['男性' => 1, '女性' => 2, 'その他' => 3];
+        $gender = $genderMap[$request->gender] ?? null;
+        if ($gender) {
+            $query->where('gender', $gender);
         }
-    
-        if ($request->filled('category')) {
-            $query->where('category_id', $request->category);
-        }
-    
-        if ($request->filled('from_date')) {
-            $query->whereDate('created_at', '>=', $request->from_date);
-        }
+    }
+
+    if ($request->filled('category')) {
+        $query->where('category_id', $request->category);
+    }
+
+    if ($request->filled('from_date')) {
+        $query->whereDate('created_at', '>=', $request->from_date);
+    }
+
     
     // <!-- 絞り込み済みのデータを全件取得-->
         $contacts = $query->get();
     
     // <!-- () に渡す配列を作成-->
     //  map() は foreach と同じで、データをCSV用の配列に変換-->
-        $csvHeader = ['ID', '名前', '性別', 'メールアドレス', 'お問い合わせの種類', '作成日'];
+        $csvHeader = [    'お名前', '性別', 'メールアドレス', '電話番号', '住所', '建物名', 'お問い合わせの種類', 'お問い合わせ内容'
+        ];
         $csvData = $contacts->map(function ($contact) {
             return [
-                $contact->id,
                 $contact->last_name . ' ' . $contact->first_name,
-               $contact->gender == 1 ? '男性' : ($contact->gender == 2 ? '女性' : 'その他'),
+                $contact->gender == 1 ? '男性' : ($contact->gender == 2 ? '女性' : 'その他'),
                 $contact->email,
+                $contact->tel,
+                $contact->address,
+                $contact->building,
                 $contact->category->content ?? '',
-                $contact->created_at->format('Y-m-d H:i:s'),
+                $contact->detail,
             ];
         });
     
@@ -132,7 +140,4 @@ class AdminController extends Controller
             'Content-Disposition' => "attachment; filename=$filename",
         ]);
     }
-
-
-
 }

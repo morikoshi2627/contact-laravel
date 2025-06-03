@@ -26,8 +26,8 @@ Route::post('/contact/store', [ContactController::class, 'store'])->name('contac
 Route::middleware(['auth'])->group(function () {
   Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 });
-
-Route::get('/admin/export', [ContactController::class, 'export'])->name('contact.export');
+// エクスポート
+Route::get('/admin/export', [AdminController::class, 'export'])->name('admin.export');
 
 Route::get('/login', function () {
   return view('login');

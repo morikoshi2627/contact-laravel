@@ -75,7 +75,7 @@
   </form>
       <!-- エクスポートボタン -->
       <div class="action-row">
-          <form method="GET" action="{{ route('contact.export') }}">
+          <form method="GET" action="{{ route('admin.export') }}">
             <!-- 検索条件を保持したまま送信 -->
             <input type="hidden" name="name" value="{{ request('name') }}">
             <input type="hidden" name="gender" value="{{ request('gender') }}">
