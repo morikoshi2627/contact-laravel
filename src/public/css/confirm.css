@@ -1,29 +1,3 @@
-/*  
-.header {
-  color: #8b7969;
-  font-size: 30px;
-  font-family: serif;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 15px;
-  display: flex;
-  justify-content: center;
-  /* 横方向に中央 
-  align-items: center;
-  /* 縦方向に中央（高さがある場合） */
-/* } */
-
-/* .contact-form__content { 
-  padding: 50px 300px;
-  max-width: auto;
-  color: #8b7969;
-}
-
-/* .contact-form__heading { 
-  font-family: serif;
-  text-align: center;
-  width: 100%;
-  margin-bottom: 30px;
-  /* 下のフォームとの余白 */
 
 .confirm-table {
   border: 1px solid #ddd;
