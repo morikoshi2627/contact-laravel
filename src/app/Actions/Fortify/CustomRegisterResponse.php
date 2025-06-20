@@ -11,6 +11,6 @@ class CustomRegisterResponse implements RegisterResponse
     public function toResponse($request)
     {
         // 登録後に遷移したいURLをここで指定
-        return redirect('/contact');  //contact にリダイレクト
+        return redirect('/admin');  //contact にリダイレクト
     }
 }

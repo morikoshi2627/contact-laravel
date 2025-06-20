@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Category;
 use Illuminate\Support\Facades\Response;
-use Symfony\Component\HttpFoundation\StreamedResponse;
+// use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class AdminController extends Controller
 {
@@ -18,6 +18,8 @@ class AdminController extends Controller
             $query->where(function ($q) use ($name) {
                 $q->where('last_name', 'like', "%{$name}%")
                   ->orWhere('first_name', 'like', "%{$name}%")
+                  ->orWhereRaw("CONCAT(last_name, ' ', first_name) LIKE ?", ["%{$name}%"])
+                  ->orWhereRaw("REPLACE(CONCAT(last_name, first_name), ' ', '') LIKE ?", ["%{$name}%"])
                   ->orWhere('email', 'like', "%{$name}%");
             });
         }
@@ -40,6 +42,7 @@ class AdminController extends Controller
         }
     
         $contacts = $query->paginate(7);
+        $contacts->appends($request->query());
         $categories = Category::all();
 // モーダル追加
         $selectedContact = null;

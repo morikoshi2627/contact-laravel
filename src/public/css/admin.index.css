@@ -26,7 +26,8 @@
 }
 
 .form__button-submit {
-  border: #beb2a6;
+  font-family: serif;
+  border: solid 1px #beb2a6;
   background-color: #f4f4f4;
   color: #8b7969;
   padding: 5px 20px;
@@ -40,6 +41,8 @@
   width: 100vw;
   height: 100vh;
   color: #8b7969;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 
 .contact-form__title {
@@ -71,6 +74,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  margin: 0 10px;
 }
 /* 名前、メール入力欄 */
 .form__name{
@@ -89,23 +93,25 @@
 
 /* 性別選択 */
 .form__gender{
-  width: 120px;
+  width: 200px;
   padding: 10px;
   color: #8b7969;
   border-color: #e3deda;
   background-color: #f4f4f4;
   outline: none;
     /* フォーカス時の青い枠も削除したい場合 */
+  cursor: pointer;
 }
 
 /* 商品の種類選択 */
 .form__category{
-  padding: 10px 20px;
+  padding: 10px 10px;
   color: #8b7969;
   border-color: #e3deda;
   background-color: #f4f4f4;
   outline: none;
     /* フォーカス時の青い枠も削除したい場合 */
+  cursor: pointer;
 }
 
 /* 日付 */
@@ -121,36 +127,37 @@
     /* 必要に応じて境界線を明示 */
   outline: none;
     /* フォーカス時の青い枠も削除したい場合 */
+    
 }
 
 /* 検索ボタン */
 .search__button-submit{
   padding: 10px 30px;
-    border: none;
-    background: #82756b;
-    color: #fff;
-    cursor: pointer;
-    width: auto;
+  border: none;
+  background: #82756b;
+  color: #fff;
+  cursor: pointer;
+  width: auto;
 }
 
 /* リセットボタン */
 .reset__button{
   text-decoration: none;
-    padding: 8px 20px;
-    background: #d9c5b5;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    width: auto;
+  padding: 8px 20px;
+  background: #d9c5b5;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  width: auto;
 }
 
 /* 検索とリセットボタンを並べる */
 .button-group {
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   gap: 30px;
-  margin: 0 50px;
+  margin-left: 60px;
 }
 
 /* エクスポートボタン＋ページネーションの親 */
@@ -172,7 +179,7 @@
   flex-wrap: wrap;
 }
 
-/* Bootstrapのページネーションを見た目調整（任意） */
+/* Bootstrapのページネーションを見た目調整 */
 .pagination .page-link {
   color: #8b7969;
   background-color: white;
@@ -186,8 +193,6 @@
   color: #fff;
   border-color: #82756b;
 }
-
-/*  */
 
 /* エクスポートボタン */
 .export__button {
@@ -237,6 +242,7 @@
   padding: 10px 15px;
   text-align: left;
   background-color: #82756b;
+
 }
 
 .contact-table__categories{

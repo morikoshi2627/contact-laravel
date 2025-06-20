@@ -9,7 +9,7 @@ use App\Actions\Fortify\UpdateUserProfileInformation;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 // 登録後リダイレクト先指定
-use Illuminate\Support\Facades\Redirect;
+// use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Contracts\RegisterResponse;
 use App\Actions\Fortify\CustomRegisterResponse;
@@ -22,6 +22,9 @@ use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Requests\LoginRequest;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -41,19 +44,15 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::registerView(function () {
             return view('/register'); // 登録画面のBladeを指定
         });
+
+        
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
-        // 登録後リダイレクト先指定
-        // app()->singleton(RegisterResponse::class, function () {
-        // return new class implements RegisterResponse {
-        // public function toResponse($request)
-        // {
-        // return redirect('/admin');
-        // }
-        // };
-        // });
+
+
+  
 
         //ログイン後リダイレクト先指定 
 
@@ -66,35 +65,9 @@ class FortifyServiceProvider extends ServiceProvider
             };
         });
 
-// バリデーションのメッセージ追加
-Fortify::authenticateUsing(function ($request) {
-    Validator::make($request->all(), [
-        'email' => ['required', 'email'],
-        'password' => ['required'],
-    ], [
-        'email.required' => 'メールアドレスを入力して下さい',
-        'email.email' => 'メールアドレスは「ユーザー名@ドメイン」形式で入力してください',
-        'password.required' => 'パスワードを入力して下さい',
-    ])->validate();
-
-    // 認証処理（通常通り）
-    $user = \App\Models\User::where('email', $request->email)->first();
-
-    if ($user && Hash::check($request->password, $user->password)) {
-        return $user;
-    }
-
-    return null; // 認証失敗
-});
-
-
-        Fortify::registerView(function () {
-            return view('register');
-        });
-    
-        Fortify::loginView(function () {
+         Fortify::loginView(function () {
             return view('login');
-        });
+         });               
 
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
@@ -113,5 +86,12 @@ Fortify::authenticateUsing(function ($request) {
             \App\Actions\Fortify\CustomRegisterResponse::class
         );
 
+
+        Route::post('/login', function (LoginRequest $request) {
+            return app(AuthenticatedSessionController::class)->store($request);
+        })->middleware(['web']);
+
     }
+
+
 }

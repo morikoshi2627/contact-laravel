@@ -49,7 +49,7 @@ class ContactRequest extends FormRequest
               'name2.required' => '名を入力してください',
               'gender.required' => '性別を選択してください',
               'email.required' => 'メールアドレスを入力してください',
-              'email.email' => '有効なメールアドレス形式を入力してください',
+              'email.email' => 'メールアドレスはメール形式で入力してください',
               'tel1.required' => '電話番号を入力してください',
               'tel1.numeric' => '電話番号を数値で入力してください',
               'tel1.digits_between' => '電話番号は5桁までの数字で入力してください',
@@ -62,7 +62,7 @@ class ContactRequest extends FormRequest
              'address.required' => '住所を入力してください',
              'category_id.required' => 'お問い合わせの種類を選択してください',
              'content.required' => 'お問い合わせ内容を入力してください',
-             'content.' => 'お問い合わせ内容を入力してください',
+             'content.max' => 'お問い合わせ内容は120文字以内で入力してください',
 
       ];
       }
